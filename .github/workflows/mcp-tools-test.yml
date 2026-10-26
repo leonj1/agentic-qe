@@ -24,7 +24,7 @@ on:
 jobs:
   mcp-unit-tests:
     name: MCP Unit Tests
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     timeout-minutes: 10
     if: false  # DISABLED - See issue #39 - Re-enable in v1.4.5 after batching implementation
 
@@ -70,7 +70,7 @@ jobs:
 
   mcp-integration-tests:
     name: MCP Integration Tests
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     timeout-minutes: 15
 
     steps:
@@ -113,7 +113,7 @@ jobs:
 
   mcp-validation:
     name: Validate All MCP Tools
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     timeout-minutes: 5
 
     steps:
@@ -160,7 +160,7 @@ jobs:
 
   mcp-summary:
     name: MCP Test Summary
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     needs: [mcp-unit-tests, mcp-integration-tests, mcp-validation]
     if: always()
 
